@@ -1,4 +1,10 @@
 # Getting Started with Create React App
+## Tutorial de Fazt (https://youtu.be/zIY87vU33aA)
+### Aplicación Web
+### Tecnologías:
+- Node JS
+- React JS
+- JavaScript
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
