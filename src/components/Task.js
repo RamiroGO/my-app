@@ -4,11 +4,13 @@ import "./Task.css";
 //// JSX ////
 // Clase dedicada a renderizar elementos task que se le suministren.
 class Task extends Component {
+  // Función para reemplazar al archivo Task.css
+  // Para el elemento "task" que posea su variable "done" como false o true, darle un estilo diferente respectivamente.
   StyleCompleted() {
     return {
       fontSize: "20px",
       color: this.props.task.done ? "gray" : "blue",
-      textDecoration: "none",
+      textDecoration: this.props.task.done ? "line-through": "none",
     };
   }
 
@@ -16,11 +18,13 @@ class Task extends Component {
     const { task } = this.props;
     return (
       <p style={this.StyleCompleted()}>
-        {task.title} -{task.description} -{task.done} -{task.id}
+        {task.title} -
+        {task.description} -
+        {task.done} -
+        {task.id}
         <input type="checkbox" />
         <button style={btnDelete}>x</button>
-      </p>
-    );
+      </p>);
   }
 }
 
@@ -32,6 +36,7 @@ const btnDelete = {
   padding: "10px 15px",
   borderRadius: "50%",
   cursor: "pointer",
+  // float: 'right'
 };
 
 export default Task;
