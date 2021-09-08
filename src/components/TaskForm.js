@@ -7,6 +7,12 @@ export default class TaskForm extends Component {
   2- Se crea un método que sirva para revisar el evento de escritura del usuario en las cajas de texto.
   3- Se guardarán los valores de dichas cajas en la variable 'state', haciendo uso de los hook.setState.
   4- Se asignan a los cuadros de textos los valores del objeto 'state', bloqueando su contenido para conectarlo con sus valores anteriores al evento de presionar el botón de envio.
+
+  [b] Passing Functions: Pasar Funciones a través de los Props
+  1- Con el objetivo de enviar los datos ingresados por el usuario hacia la aplicación en el achivo App_parte2.js
+  2- Generamos una función en el archivo 'App_parte2.js', que será recibida por esta clase 'TaskForm.js'.
+  3- Ejecutar la función recibida con el registo 'props'. 
+  4- Ejecutar las instrucciones de la función enviada, haciendo uso de las variables presentes en 'TaskForm.js', mientras se manipula la variable 'state' presente en el archivo 'App_parte2.js'. Luego, lo que se incoporó al código del archivo TaskForm no es la función, sino el acceso al uso de la función y las variables implícitas por la misma que se encuentran en el archivo 'App_parte2.js', luego lo que se ha pasado no es la función, sino su uso, y lo que realmente se ha pasado son las variable presentes en el TaskForm para que sean leidas por el archivo 'App_parte2.js' y sean estas las variables de 'App_parte2.js' las que adquieran existencia.
   */
 
   //[a3]
@@ -21,6 +27,9 @@ export default class TaskForm extends Component {
     console.log(this.state);
     // Evitar que la página se reacargue y borre la información suministrada tras presionar un botón.
     event_form.preventDefault(); //[a1]
+
+    // Hacer uso de la función recibida addTask para visualizar el título y la descripción almacenada en la variable 'state'
+    this.props.addTask(this.state);
   };
 
   //[a2] Cambia el valor de las cajas de texto donde el usuario ingresa los datos, para que no se borren los datos tras escribir sobre ellos.
@@ -34,6 +43,9 @@ export default class TaskForm extends Component {
 
   // Función de etiquetas
   render() {
+    // [b3] Confirmar la existencia de la función recibida.
+    console.log(this.props);
+
     return (
       <form onSubmit={this.onSubmit}>
         <input
