@@ -5,11 +5,16 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "pwa-node",
+            "type": "node",
             "request": "launch",
             "name": "Launch Program",
             "skipFiles": [
-                "<node_internals>/index.html"
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\public/index.html",
+            "runtimeArgs": [
+                "run-script",
+                "debug"
             ]
         }
     ]

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import "./Task.css";
+// import "./Task.css";
+import PropTypes from "prop-types";
 
 //// JSX ////
 // Clase dedicada a renderizar elementos task que se le suministren.
@@ -26,6 +27,11 @@ class Task extends Component {
         <button style={btnDelete}>x</button>
       </p>);
   }
+}
+
+// Exigir que solo se puedan recibir elementos de tipo 'object' para hacer uso de la clase Task.
+Task.propTypes = {
+  task: PropTypes.object.isRequired
 }
 
 const btnDelete = {
