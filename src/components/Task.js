@@ -11,7 +11,7 @@ class Task extends Component {
     return {
       fontSize: "20px",
       color: this.props.task.done ? "gray" : "blue",
-      textDecoration: this.props.task.done ? "line-through": "none",
+      textDecoration: this.props.task.done ? "line-through" : "none",
     };
   }
 
@@ -19,20 +19,28 @@ class Task extends Component {
     const { task } = this.props;
     return (
       <p style={this.StyleCompleted()}>
-        {task.title} -
-        {task.description} -
-        {task.done} -
-        {task.id}
-        <input type="checkbox" />
-        <button style={btnDelete}>x</button>
-      </p>);
+        {task.title} - {task.description} - {task.done} - {task.id}
+        <input
+          type="checkbox"
+          name={'ch' + task.id}
+          value={task.done}
+          onChange={this.props.checkDone.bind(this, task.id)}
+        />
+        <button
+          style={btnDelete}
+          onClick={this.props.deleteTask.bind(this, task.id)}
+        >
+          x
+        </button>
+      </p>
+    );
   }
 }
 
 // Exigir que solo se puedan recibir elementos de tipo 'object' para hacer uso de la clase Task.
 Task.propTypes = {
-  task: PropTypes.object.isRequired
-}
+  task: PropTypes.object.isRequired,
+};
 
 const btnDelete = {
   fontSize: "18px",
