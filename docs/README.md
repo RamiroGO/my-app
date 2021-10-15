@@ -2,10 +2,12 @@
 ## Tutorial de Fazt (https://youtu.be/zIY87vU33aA)
 ### Aplicación Web
 ### Tecnologías:
+- Visual Studio Code
 - Node JS
 - React JS
 - JavaScript
 - HTML
+- CSS
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
